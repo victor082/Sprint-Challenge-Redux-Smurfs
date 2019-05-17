@@ -13,13 +13,13 @@ class SmurfList extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="smurfsCard">
                 {this.props.smurfs.map(smurf => (
                     <div key={smurf.id}>
                         <h1>{smurf.name}</h1>
                         <p>Age: {smurf.age}</p>
                         <p>Height: {smurf.height}</p>
-                        <button onClick={this.deleteSmurf} >Delete Smurf</button>
+                        <button onClick={this.deleteSmurf}>Delete Smurf</button>
                         </div>
                 ))}
             </div>
