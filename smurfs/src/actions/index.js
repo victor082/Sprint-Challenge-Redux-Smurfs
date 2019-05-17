@@ -31,3 +31,19 @@ export const getSmurfs = () => dispatch => {
       dispatch({ type: FETCH_SMURFS_FAIL, payload: err})
     })
 }
+
+export const ADD_SMURFS_START = 'ADD_SMURFS_START';
+export const ADD_SMURFS_SUCCESS = 'ADD_SMURFS_SUCCESS';
+export const ADD_SMURFS_FAIL = 'ADD_SMURFS_FAIL';
+
+export const addSmurf = newSmurf => dispatch => {
+  dispatch ({ type: ADD_SMURFS_START });
+  axios
+    .post(`http://localhost:3333/smurfs`, newSmurf)
+    .then(res => {
+      dispatch({ type: ADD_SMURFS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ADD_SMURFS_FAIL, payload: err});
+    })
+}
